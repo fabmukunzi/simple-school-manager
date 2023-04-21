@@ -5,21 +5,32 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index"
+    "start": "nodemon --exec npx babel-node src/index",
+    "migrate": "sequelize db:migrate",
+    "migrate:reset": "sequelize db:migrate:undo:all && npm run migrate",
+    "seed": "sequelize db:seed:all",
+    "seeding": "npm run migrate:reset && npm run seed",
+    "reset:db": "sequelize db:drop && sequelize db:create && npm run seeding"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/register": "^7.21.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "install": "^0.13.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.2.3",
-    "sequelize": "^6.31.0"
+    "pg": "^8.10.0",
+    "sequelize": "^6.31.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.6.0"
   }
 }
