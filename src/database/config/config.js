@@ -40,7 +40,7 @@ module.exports = {
     //   //   rejectUnauthorized: false,
     //   // },
     // },
-    logging: true,
+    logging: false,
   },
   test: {
     url: process.env.TEST_DATABASE_URL,

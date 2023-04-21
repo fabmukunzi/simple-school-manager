@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Teacher extends Model {
     static associate(models) {
-      this.belongsToMany(models.Subject,{as:'subject-name',through:'name',foreignKey:'name'})
+      this.belongsToMany(models.Subject,{through:'subjects',foreignKey:'subjects'})
     }
   }
   Teacher.init({
@@ -25,10 +25,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ARRAY(DataTypes.TEXT),
         references: {
           model: 'Subject',
-          key: 'name'
+          key: 'id'
         }
     },
-    // classes: DataTypes.ARRAY(DataTypes.STRING),
   }, {
     sequelize,
     modelName: 'Teacher',

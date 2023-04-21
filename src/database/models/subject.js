@@ -1,24 +1,25 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Subject extends Model {
     static associate(models) {
-      this.belongsToMany(models.Teacher,{as:'subject-name',through:'name',foreignKey:'name'})
+      // this.belongsTo(models.Teacher, {through:"subjects", foreignKey: 'subjects' });
     }
   }
-  Subject.init({
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
+  Subject.init(
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true,
+      },
+      name: DataTypes.STRING,
     },
-    name: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Subject',
-  });
+    {
+      sequelize,
+      modelName: 'Subject',
+    }
+  );
   return Subject;
 };

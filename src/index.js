@@ -1,12 +1,15 @@
 import express from 'express';
 import router from './routes/index';
 import dotenv from 'dotenv';
+import cors from 'cors';
+
 import { sequelize } from './database/models';
 dotenv.config();
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);

@@ -1,0 +1,21 @@
+input,button{
+  padding: 0 10px 10px 0;
+  margin:10px;
+
+}
+button{
+  text-align: center;
+  padding: auto 0 0 auto;
+  cursor: pointer;
+}
+.login{
+  display: grid;
+  grid-template-columns: auto;
+  width: fit-content;
+}
+th,td,tr{
+  border: 5px solid green;
+}
+table{
+  border-collapse: collapse;
+}

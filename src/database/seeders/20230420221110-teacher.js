@@ -1,6 +1,13 @@
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
+function cleanArray (arr) {
+  return '{"' + arr.map(e => cleanEntry(e)).join('", "') + '"}';
+}
+
+function cleanEntry (obj) {
+  return JSON.stringify(obj).replace(/"/g, '\\"');
+}
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Teachers', [
@@ -18,7 +25,7 @@ module.exports = {
         names: 'Bohneur Rumanzi',
         email: 'rumanzibohneur@gmail.com',
         password: 'pass',
-        subjects:['SET'],
+        subjects:['Science','Kinyarwanda'],
         createdAt: new Date(),
         updatedAt: new Date(),
       },

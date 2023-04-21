@@ -1,8 +1,8 @@
-import { Teacher } from '../database/models';
+import { Teacher,Subject } from '../database/models';
 
 export const getUserByEmail = async (email) => {
   return await Teacher.findOne({ where: { email: email } });
 };
-export const getUserById=async(userId)=>{
-    return await Teacher.findOne({where:{id:userId}});
+export const getAllSubjects=async()=>{
+    return await Subject.findAll();
 }
