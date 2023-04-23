@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.bulkInsert('Scores', [
       {
         id: '76432d88-a891-4c4f-9b8f-aca96513f4dd',
-        subject: '76432d88-a891-4c4f-9b8f-aca96513f4dd',
+        subject: '872526ad-76be-4f44-b5d9-8032f0925c2d',
         student:'76432d88-a891-4c4f-9b8f-aca96513f47d',
         work:'fd06eafd-3cdb-4335-aac8-8686c96d7345',
         marks:70,
@@ -15,9 +15,9 @@ module.exports = {
       },
       {
         id: '58836112-d55b-4135-893b-059f5513e959',
-        subject: 'acea4bd8-38e5-4799-a52b-a6dd9727ff51',
+        subject: '872526ad-76be-4f44-b5d9-8032f0925c2d',
         student:'872526ad-76be-4f44-b5d9-8032f0925c2d',
-        work:'8695a55e-3ca8-4984-a5ec-3bc2f6352992',
+        work:'fd06eafd-3cdb-4335-aac8-8686c96d7345',
         marks:90,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -35,7 +35,7 @@ module.exports = {
         id: 'edc1eaab-ff03-4f66-b275-75d9472df76b',
         subject: '76432d88-a891-4c4f-9b8f-aca96513f4dd',
         student:'872526ad-76be-4f44-b5d9-8032f0925c4d',
-        work:'faf5fb96-cd79-459a-9304-0fb667e71b73',
+        work:'fd06eafd-3cdb-4335-aac8-8686c96d7345',
         marks:60,
         createdAt: new Date(),
         updatedAt: new Date(),

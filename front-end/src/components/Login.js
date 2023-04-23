@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router';
 
 const Login = () => {
@@ -18,7 +18,6 @@ const Login = () => {
         localStorage.setItem('user', JSON.stringify(response?.user));
         navigate('/teacher/subjects');
       })
-      .catch((error) => console.log(error, 'error'));
   };
   return (
     <div className="login">

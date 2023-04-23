@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Teacher extends Model {
     static associate(models) {
-      this.belongsToMany(models.Subject,{through:'subjects',foreignKey:'subjects'})
+      // this.belongsToMany(models.Subject,{as:'teacher',through:'subjectId',foreignKey:'teacherId'})
     }
   }
   Teacher.init({

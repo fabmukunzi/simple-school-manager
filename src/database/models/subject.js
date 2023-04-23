@@ -3,8 +3,8 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Subject extends Model {
     static associate(models) {
-      // this.belongsTo(models.Teacher, {through:"subjects", foreignKey: 'subjects' });
-    }
+      this.belongsToMany(models.Subject, {as:'subjects',through: 'id',foreignKey:'subjects'});
+    }    
   }
   Subject.init(
     {

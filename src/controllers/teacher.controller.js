@@ -1,5 +1,5 @@
 import {Subject,Classes,Student,Score,Work} from '../database/models';
-import { getAllSubjects, getUserByEmail} from '../services/teacher.service';
+import { getUserByEmail} from '../services/teacher.service';
 
 export const login = async (req, res) => {
   try {
@@ -42,9 +42,9 @@ export const getStudents=async(req,res)=>{
 }
 
 export const getScores=async(req,res)=>{
-  const {subject,student}=req.query;
+  const {work}=req.query;
   try {
-    const scores=await Score.findAll({where:{student:student}});
+    const scores=await Score.findAll({where:{work:work}});
     return res.status(200).json({scores:scores});
   } catch (error) {
     return res.status(500).json({message:'Error while fetching scores',error:error})
@@ -59,3 +59,22 @@ export const getWorks=async(req,res)=>{
     return res.status(500).json({message:'Error while fetching works',error:error})
   }
 }
+export const addMarks = async (req, res) => {
+  try {
+    const { id, student, subject, marks, work } = req.body;
+    const { ...score } = { student, subject, marks, work };
+    if (id) {
+      const [rowsUpdated] = await Score.update({ marks }, { where: { id } });
+      if (rowsUpdated === 0) {
+        await Score.create(score);
+        return res.status(201).json({ message: 'Score created successfully', score });
+      }
+      return res.status(200).json({ message: 'Score updated successfully', score });
+    } else {
+      const createdScore = await Score.create(score);
+      return res.status(201).json({ message: 'Score created successfully', score: createdScore });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: 'Error while adding marks', error: error });
+  }
+};

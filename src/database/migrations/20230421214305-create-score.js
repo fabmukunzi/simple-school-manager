@@ -19,7 +19,8 @@ module.exports = {
         type: Sequelize.UUID
       },
       marks: {
-        type: Sequelize.FLOAT
+        type: Sequelize.FLOAT,
+        defaultValue:0
       },
       createdAt: {
         allowNull: false,

@@ -1,5 +1,6 @@
 import express from 'express';
-import { getClasses, getScores, getStudents, getSubjects, getWorks, login } from '../controllers/teacher.controller';
+import { addMarks, getClasses, getScores, getStudents, getSubjects, getWorks, login } from '../controllers/teacher.controller';
+import { checkIfTeacherBelongsToSubject } from '../middlewares/teacher.middleware';
 
 const teacherRoutes = express.Router();
 
@@ -9,5 +10,6 @@ teacherRoutes.get('/classes',getClasses)
 teacherRoutes.get('/:classId/students',getStudents)
 teacherRoutes.get('/scores',getScores)
 teacherRoutes.get('/works',getWorks)
+teacherRoutes.post('/addmarks',checkIfTeacherBelongsToSubject,addMarks)
 
 export default teacherRoutes;
